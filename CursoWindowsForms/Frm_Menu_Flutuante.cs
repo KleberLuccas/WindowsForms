@@ -21,7 +21,11 @@ namespace CursoWindowsForms
         {
             if (e.Button == MouseButtons.Right)
             {
-                MessageBox.Show("Direita");
+                //var posicaoX = e.X;
+                //var posicaoY = e.Y;
+                //MessageBox.Show("Botão direito clicado. A posição relativa foi (" + posicaoX.ToString() + "," + posicaoY.ToString() + ")");
+                
+                var contextMenu =  
             }
         }
     }
