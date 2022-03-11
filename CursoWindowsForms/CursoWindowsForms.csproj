@@ -120,6 +120,12 @@
     <Compile Include="Formulários Curso 2\Frm_HelloWorld_UC.Designer.cs">
       <DependentUpon>Frm_HelloWorld_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Menu_Flutuante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Menu_Flutuante.Designer.cs">
+      <DependentUpon>Frm_Menu_Flutuante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MouseCaptura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulários Curso 2\Frm_Mascara_UC.resx">
       <DependentUpon>Frm_Mascara_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Menu_Flutuante.resx">
+      <DependentUpon>Frm_Menu_Flutuante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_MouseCaptura.resx">
       <DependentUpon>Frm_MouseCaptura.cs</DependentUpon>
