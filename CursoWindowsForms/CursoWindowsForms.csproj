@@ -126,6 +126,12 @@
     <Compile Include="Frm_MouseCaptura.Designer.cs">
       <DependentUpon>Frm_MouseCaptura.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_MouseCursor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_MouseCursor.Designer.cs">
+      <DependentUpon>Frm_MouseCursor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_MouseEventos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +214,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_MouseCaptura.resx">
       <DependentUpon>Frm_MouseCaptura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_MouseCursor.resx">
+      <DependentUpon>Frm_MouseCursor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_MouseEventos.resx">
       <DependentUpon>Frm_MouseEventos.cs</DependentUpon>
