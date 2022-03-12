@@ -8,9 +8,9 @@ namespace CursoWindowsForms
 {
     static class Program
     {
-        /// <summary>
+        /// <summary>331212
         /// Ponto de entrada principal para o aplicativo.
-        /// </summary>
+        /// </su23131mmary>
         [STAThread]
         static void Main()
         {
