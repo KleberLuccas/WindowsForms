@@ -120,6 +120,12 @@
     <Compile Include="Formulários Curso 2\Frm_HelloWorld_UC.Designer.cs">
       <DependentUpon>Frm_HelloWorld_UC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_CadastroCliente_UC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Frm_CadastroCliente_UC.Designer.cs">
+      <DependentUpon>Frm_CadastroCliente_UC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Menu_Flutuante.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,7 @@
     <Compile Include="Formulários Curso 2\Frm_ValidaSenha_UC.Designer.cs">
       <DependentUpon>Frm_ValidaSenha_UC.cs</DependentUpon>
     </Compile>
+    <None Include="Imagens\Textos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Formulários Curso 1\Frm_DemonstracaoKey.resx">
@@ -217,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formulários Curso 2\Frm_Mascara_UC.resx">
       <DependentUpon>Frm_Mascara_UC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_CadastroCliente_UC.resx">
+      <DependentUpon>Frm_CadastroCliente_UC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Menu_Flutuante.resx">
       <DependentUpon>Frm_Menu_Flutuante.cs</DependentUpon>
@@ -288,6 +298,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Frm_Principal.ico" />
+    <None Include="Imagens\user.png" />
+    <None Include="Imagens\Cadastros.png" />
     <Content Include="Imagens\Frm_DemonstracaoKey.ico" />
     <Content Include="Imagens\Frm_DemonstracaoKey.png" />
     <Content Include="Imagens\Frm_HelloWorld.ico" />
@@ -302,6 +314,7 @@
     <Content Include="Imagens\Frm_ValidaSenha.ico" />
     <Content Include="Imagens\Frm_ValidaSenha.png" />
     <Content Include="Imagens\key.png" />
+    <None Include="Imagens\money.png" />
     <Content Include="Imagens\question-mark.ico" />
     <Content Include="Imagens\question-mark.png" />
   </ItemGroup>

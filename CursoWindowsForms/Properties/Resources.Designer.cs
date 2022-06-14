@@ -63,6 +63,16 @@ namespace CursoWindowsForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cadastros {
+            get {
+                object obj = ResourceManager.GetObject("Cadastros", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frm_DemonstracaoKey {
             get {
                 object obj = ResourceManager.GetObject("Frm_DemonstracaoKey", resourceCulture);
@@ -203,6 +213,16 @@ namespace CursoWindowsForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap money {
+            get {
+                object obj = ResourceManager.GetObject("money", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap question_mark {
             get {
                 object obj = ResourceManager.GetObject("question_mark", resourceCulture);
@@ -217,6 +237,36 @@ namespace CursoWindowsForms.Properties {
             get {
                 object obj = ResourceManager.GetObject("question_mark1", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta uma cadeia de caracteres localizada semelhante a   Lbl_Bairro.Text = &quot;Bairro&quot;;
+        ///            Lbl_CEP.Text = &quot;CEP&quot;;
+        ///            Lbl_Complemento.Text = &quot;Complemento&quot;;
+        ///            Lbl_CPF.Text = &quot;CPF&quot;;
+        ///            Lbl_Estado.Text = &quot;Estado&quot;;
+        ///            Lbl_Genero.Text = &quot;Genero&quot;;
+        ///            Lbl_Logradouro.Text = &quot;Logradouro&quot;;
+        ///            Lbl_NomeCliente.Text = &quot;Nome&quot;;
+        ///            Lbl_NomeMae.Text = &quot;Nome da Mãe&quot;;
+        ///            Lbl_NomePai.Text = &quot;Nome do Pai&quot;;
+        ///            Lbl_Profissao.Text = &quot;Profissão&quot;;
+        ///            Lbl_RendaFamiliar.Text = &quot;Renda  [o restante da cadeia de caracteres foi truncado]&quot;;.
+        /// </summary>
+        internal static string Textos {
+            get {
+                return ResourceManager.GetString("Textos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }
