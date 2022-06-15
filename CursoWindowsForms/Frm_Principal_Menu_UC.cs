@@ -133,7 +133,7 @@ namespace CursoWindowsForms
             if (Db.ShowDialog() == DialogResult.OK)
             {
                 string NomeArquivoImagem = Db.FileName;
-                    
+
 
                 ControleArquivoImagem += 1;
                 Frm_ArquivoImagem_UC U = new Frm_ArquivoImagem_UC(NomeArquivoImagem);
@@ -145,38 +145,44 @@ namespace CursoWindowsForms
                 TB.Controls.Add(U);
                 Tbc_Aplicacoes.TabPages.Add(TB);
             }
-
-            
         }
 
         private void conectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Frm_Login F = new Frm_Login();
+            
             F.ShowDialog();
 
             if (F.DialogResult == DialogResult.OK)
             {
-                string senha = F.Senha;
-                string Login = F.Login;
-
-                if (CursoWindowsFormsBiblioteca.Cls_Uteis.ValidaSenhaLogin(senha) == true)
+                Boolean verificacao = false;
+                string senha;
+                string Login;
+                while (verificacao == false)
                 {
-                    MessageBox.Show("Bem vindo, " + Login + "!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    novoToolStripMenuItem.Enabled = true;
-                    apagarAbaToolStripMenuItem.Enabled = true;
-                    abrirImagemToolStripMenuItem.Enabled = true;
-                    conectarToolStripMenuItem.Enabled = false;
-                    cadastrosToolStripMenuItem.Enabled = true;
+                    senha = F.Senha;
+                    Login = F.Login;
+                    if (CursoWindowsFormsBiblioteca.Cls_Uteis.ValidaSenhaLogin(senha) == true)
+                    {
 
-
-                }
-                else
-                {
-                    MessageBox.Show("Senha inválida !", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    F.ShowDialog();
+                        MessageBox.Show("Bem vindo, " + Login + "!", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        novoToolStripMenuItem.Enabled = true;
+                        apagarAbaToolStripMenuItem.Enabled = true;
+                        abrirImagemToolStripMenuItem.Enabled = true;
+                        conectarToolStripMenuItem.Enabled = false;
+                        cadastrosToolStripMenuItem.Enabled = true;
+                        verificacao = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Senha inválida !", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        F.ShowDialog();
+                    }
                 }
 
             }
+
+
         }
 
         private void clientesToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -212,7 +218,7 @@ namespace CursoWindowsForms
                 {
                     //Tbc_Aplicacoes.TabPages.Remove(Tbc_Aplicacoes.SelectedTab);
 
-                    for (int i = Tbc_Aplicacoes.TabPages.Count - 1; i >= 0; i+=-1)
+                    for (int i = Tbc_Aplicacoes.TabPages.Count - 1; i >= 0; i += -1)
                     {
                         ApagarAba(Tbc_Aplicacoes.TabPages[i]);
                     }
@@ -234,5 +240,6 @@ namespace CursoWindowsForms
             }
             Tbc_Aplicacoes.TabPages.Remove(tb);
         }
+
     }
 }

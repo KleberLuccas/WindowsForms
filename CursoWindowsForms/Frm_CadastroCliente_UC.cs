@@ -26,5 +26,17 @@ namespace CursoWindowsForms
             Lbl_NomeMae.Text = "Nome da Mãe";
             Lbl_NomePai.Text = "Nome do Pai";
         }
+
+        private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Chk_TemPai.Checked)
+            {
+                Txt_NomePai.Enabled = false;
+            }
+            else
+            {
+                Txt_NomePai.Enabled = true;
+            }
+        }
     }
 }

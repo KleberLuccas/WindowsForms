@@ -72,14 +72,14 @@ namespace CursoWindowsForms
             this.Txt_Login.Location = new System.Drawing.Point(122, 33);
             this.Txt_Login.Name = "Txt_Login";
             this.Txt_Login.Size = new System.Drawing.Size(151, 20);
-            this.Txt_Login.TabIndex = 3;
+            this.Txt_Login.TabIndex = 1;
             // 
             // Btn_Ok
             // 
             this.Btn_Ok.Location = new System.Drawing.Point(12, 144);
             this.Btn_Ok.Name = "Btn_Ok";
             this.Btn_Ok.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Ok.TabIndex = 5;
+            this.Btn_Ok.TabIndex = 3;
             this.Btn_Ok.Text = "button1";
             this.Btn_Ok.UseVisualStyleBackColor = true;
             this.Btn_Ok.Click += new System.EventHandler(this.Btn_Ok_Click);
@@ -89,7 +89,7 @@ namespace CursoWindowsForms
             this.Btn_Cancel.Location = new System.Drawing.Point(198, 144);
             this.Btn_Cancel.Name = "Btn_Cancel";
             this.Btn_Cancel.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Cancel.TabIndex = 6;
+            this.Btn_Cancel.TabIndex = 4;
             this.Btn_Cancel.Text = "button2";
             this.Btn_Cancel.UseVisualStyleBackColor = true;
             this.Btn_Cancel.Click += new System.EventHandler(this.Btn_Cancel_Click);
@@ -100,7 +100,7 @@ namespace CursoWindowsForms
             this.Txt_PassWord.Name = "Txt_PassWord";
             this.Txt_PassWord.PasswordChar = '*';
             this.Txt_PassWord.Size = new System.Drawing.Size(151, 20);
-            this.Txt_PassWord.TabIndex = 7;
+            this.Txt_PassWord.TabIndex = 2;
             // 
             // Frm_Login
             // 
