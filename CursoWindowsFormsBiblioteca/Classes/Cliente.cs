@@ -7,11 +7,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
-    class Cliente
+    public class Cliente
     {
         public class unit
         {
             [Required(ErrorMessage = "Código do cliente é obrigatório.")]
+            [RegularExpression("([0-9]+)",ErrorMessage = "Código do cliente deve conter apenas números.")]
+            [StringLength(6, MinimumLength = 6, ErrorMessage = "Codigo do cliente deve ter 6 dígitos.")]
 
             public string Id { get; set; }
             public string Nome { get; set; }

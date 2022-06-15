@@ -54,7 +54,7 @@ namespace CursoWindowsForms
             this.Txt_Telefone = new System.Windows.Forms.TextBox();
             this.Txt_Profissao = new System.Windows.Forms.TextBox();
             this.Txt_RendaFamiliar = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Txt_Codigo = new System.Windows.Forms.TextBox();
             this.Grp_Código = new System.Windows.Forms.GroupBox();
             this.Grp_DadosPessoais = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -287,16 +287,16 @@ namespace CursoWindowsForms
             this.Txt_RendaFamiliar.Size = new System.Drawing.Size(269, 20);
             this.Txt_RendaFamiliar.TabIndex = 14;
             // 
-            // textBox1
+            // Txt_Codigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(268, 20);
-            this.textBox1.TabIndex = 1;
+            this.Txt_Codigo.Location = new System.Drawing.Point(6, 19);
+            this.Txt_Codigo.Name = "Txt_Codigo";
+            this.Txt_Codigo.Size = new System.Drawing.Size(268, 20);
+            this.Txt_Codigo.TabIndex = 1;
             // 
             // Grp_Código
             // 
-            this.Grp_Código.Controls.Add(this.textBox1);
+            this.Grp_Código.Controls.Add(this.Txt_Codigo);
             this.Grp_Código.Location = new System.Drawing.Point(15, 33);
             this.Grp_Código.Name = "Grp_Código";
             this.Grp_Código.Size = new System.Drawing.Size(281, 49);
@@ -560,7 +560,7 @@ namespace CursoWindowsForms
         private System.Windows.Forms.TextBox Txt_Telefone;
         private System.Windows.Forms.TextBox Txt_Profissao;
         private System.Windows.Forms.TextBox Txt_RendaFamiliar;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txt_Codigo;
         private System.Windows.Forms.GroupBox Grp_Código;
         private System.Windows.Forms.GroupBox Grp_DadosPessoais;
         private System.Windows.Forms.GroupBox Grp_Endereco;
