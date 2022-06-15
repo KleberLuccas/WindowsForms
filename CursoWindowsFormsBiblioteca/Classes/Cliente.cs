@@ -14,24 +14,65 @@ namespace CursoWindowsFormsBiblioteca.Classes
             [Required(ErrorMessage = "Código do cliente é obrigatório.")]
             [RegularExpression("([0-9]+)",ErrorMessage = "Código do cliente deve conter apenas números.")]
             [StringLength(6, MinimumLength = 6, ErrorMessage = "Codigo do cliente deve ter 6 dígitos.")]
-
             public string Id { get; set; }
+
+
+            [Required(ErrorMessage = "Nome do cliente é obrigatório.")]
+            [StringLength(50, ErrorMessage = "Nome do cliente deve ter menos do que 50 caracteres.")]
             public string Nome { get; set; }
+
+
+            [StringLength(50, ErrorMessage = "Nome do pai do cliente deve ter menos do que 50 caracteres.")]
             public string NomeDoPai { get; set; }
+
+
+            [Required(ErrorMessage = "Nome da mãe é obrigatório.")]
+            [StringLength(50, ErrorMessage = "Nome a mãe do cliente deve ter menos do que 50 caracteres.")]
             public string NomeDaMae { get; set; }
+
             public bool TemPai { get; set; }
+
+            [Required(ErrorMessage = "CPF é obrigatório.")]
+            [RegularExpression("([0-9]+)", ErrorMessage = "CPF do cliente deve conter apenas números.")]
+            [StringLength(11, ErrorMessage = "CPF do cliente deve ter menos do que 11 dígitos.")]
             public string CPF { get; set; }
+
+            [Required(ErrorMessage = "Gênero é obrigatório.")]
             public int Genero { get; set; }
 
+            [Required(ErrorMessage = "CEP é obrigatório.")]
+            [RegularExpression("([0-9]+)", ErrorMessage = "CEP do cliente deve conter apenas números.")]
+            [StringLength(8, MinimumLength = 8,ErrorMessage = "CEP do cliente deve ter menos do que 8 dígitos.")]
             public string CEP { get; set; }
+
+            [Required(ErrorMessage = "Logradouro é obrigatório.")]
+            [StringLength(100, ErrorMessage = "Logradouro do cliente deve ter menos do que 100 caracteres.")]
             public string Logradouro { get; set; }
+
+            [Required(ErrorMessage = "Complemento é obrigatório.")]
+            [StringLength(50, ErrorMessage = "Complemento do cliente deve ter menos do que 50 caracteres.")]
             public string Complemento { get; set; }
+
+            [Required(ErrorMessage = "Bairro é obrigatório.")]
+            [StringLength(50, ErrorMessage = "Bairro do cliente deve ter menos do que 50 caracteres.")]
             public string Bairro { get; set; }
+
+            [Required(ErrorMessage = "Cidade é obrigatório.")]
+            [StringLength(30, ErrorMessage = "Cidade do cliente deve ter menos do que 30 caracteres.")]
             public string Cidade { get; set; }
+
+            [Required(ErrorMessage = "Estado é obrigatório.")]
+            [StringLength(30, ErrorMessage = "Estado do cliente deve ter menos do que 30 caracteres.")]
             public string Estado { get; set; }
 
+
+            [Required(ErrorMessage = "Número de telefone é obrigatório.")]
+            [RegularExpression("([0-9]+)", ErrorMessage = "Número de telefone do cliente deve conter apenas números.")]
             public string telefone { get; set; }
             public string profissao { get; set; }
+
+            [Required(ErrorMessage = "Renda Familiar é obrigatório.")]
+            [Range(0, Double.MaxValue, ErrorMessage = "Renda Familiar deve ser um valor positivo.")]
             public Double RendaFamiliar { get; set; }
 
             public void ValidaClasse()
