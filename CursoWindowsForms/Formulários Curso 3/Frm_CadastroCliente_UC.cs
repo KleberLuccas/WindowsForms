@@ -68,13 +68,18 @@ namespace CursoWindowsForms
                 c = LeituraFormulario();
                 c.Id = Txt_Codigo.Text;
                 c.ValidaClasse();
+                c.ValidaComponente();
                 MessageBox.Show("Foi inicializada sem erros", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
             {
                 MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            catch (Exception Ex)
+            {
+                MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         Cliente.unit LeituraFormulario()

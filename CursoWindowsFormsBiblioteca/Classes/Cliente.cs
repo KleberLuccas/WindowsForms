@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using 
 
 namespace CursoWindowsFormsBiblioteca.Classes
 {
@@ -91,7 +92,30 @@ namespace CursoWindowsFormsBiblioteca.Classes
                     throw new ValidationException(sbrErrors.ToString());
                 }
             }
+
+            public void ValidaComponente()
+            {
+                if (this.NomeDoPai == this.NomeDaMae)
+                {
+                    throw new Exception("Nome do Pai e da Mãe não podem ser iguais");
+                }
+                if (this.TemPai == false)
+                {
+                    if (this.NomeDoPai == "")
+                    {
+                        throw new Exception("Nome do pai não deve estar vazio quando a propriedade Pai Desconhecido estiver desmarcado.");
+                    }
+                }
+                bool ValidaCPF = Cls_Uteis.Valida(this.CPF);
+                if (ValidaCPF == false)
+                {
+                    throw new Exception("CPF Inválido");
+                }
+                
+            }
         }
+
+        
 
         public class list
         {
