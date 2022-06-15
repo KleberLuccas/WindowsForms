@@ -73,6 +73,16 @@ namespace CursoWindowsForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ExcluirBarra {
+            get {
+                object obj = ResourceManager.GetObject("ExcluirBarra", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frm_DemonstracaoKey {
             get {
                 object obj = ResourceManager.GetObject("Frm_DemonstracaoKey", resourceCulture);
@@ -206,6 +216,16 @@ namespace CursoWindowsForms.Properties {
         internal static System.Drawing.Bitmap key {
             get {
                 object obj = ResourceManager.GetObject("key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LimparBarra {
+            get {
+                object obj = ResourceManager.GetObject("LimparBarra", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

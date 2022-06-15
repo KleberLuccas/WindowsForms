@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CursoWindowsFormsBiblioteca;
 
 namespace CursoWindowsForms
 {
@@ -43,6 +37,12 @@ namespace CursoWindowsForms
             Cmb_Estados.Items.Add("São Paulo(SP)");
             Cmb_Estados.Items.Add("Sergipe(SE)");
             Cmb_Estados.Items.Add("Tocantins(TO)");
+
+            Tls_Principal.Items[0].ToolTipText = "Incluir um novo cliente na base de dados";
+            Tls_Principal.Items[1].ToolTipText = "Capturar um cliente já cadastrado na base";
+            Tls_Principal.Items[2].ToolTipText = "Atualizar o cliente já existente";
+            Tls_Principal.Items[3].ToolTipText = "Apaga o cliente selecionado";
+            Tls_Principal.Items[4].ToolTipText = "Limpar dados da tela";
         }
 
         private void Chk_TemPai_CheckedChanged(object sender, EventArgs e)
@@ -55,6 +55,11 @@ namespace CursoWindowsForms
             {
                 Txt_NomePai.Enabled = true;
             }
+        }
+        
+        private void novoToolStripButton_Click(object sender, EventArgs e)
+        {
+            Cliente.unit 
         }
     }
 }

@@ -300,6 +300,7 @@
     <Content Include="Frm_Principal.ico" />
     <None Include="Imagens\user.png" />
     <None Include="Imagens\Cadastros.png" />
+    <Content Include="Imagens\ExcluirBarra.png" />
     <Content Include="Imagens\Frm_DemonstracaoKey.ico" />
     <Content Include="Imagens\Frm_DemonstracaoKey.png" />
     <Content Include="Imagens\Frm_HelloWorld.ico" />
@@ -315,6 +316,7 @@
     <Content Include="Imagens\Frm_ValidaSenha.png" />
     <Content Include="Imagens\key.png" />
     <None Include="Imagens\money.png" />
+    <Content Include="Imagens\LimparBarra.png" />
     <Content Include="Imagens\question-mark.ico" />
     <Content Include="Imagens\question-mark.png" />
   </ItemGroup>
