@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using CursoWindowsFormsBiblioteca.Classes;
 using CursoWindowsFormsBiblioteca;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.VisualBasic;
 
 namespace CursoWindowsForms
 {
@@ -64,6 +65,7 @@ namespace CursoWindowsForms
             try
             {
                 Cliente.unit c = new Cliente.unit();
+                c = LeituraFormulario();
                 c.Id = Txt_Codigo.Text;
                 c.ValidaClasse();
                 MessageBox.Show("Foi inicializada sem erros", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -73,6 +75,70 @@ namespace CursoWindowsForms
                 MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        Cliente.unit LeituraFormulario()
+        {
+            Cliente.unit C = new Cliente.unit();
+            C.Id = Txt_Codigo.Text;
+            C.Nome = Txt_NomeCliente.Text;
+            C.NomeDaMae = Txt_NomeMae.Text;
+            C.NomeDoPai = Txt_NomePai.Text;
+            if (Chk_TemPai.Checked)
+            {
+                C.TemPai = true;
+            }
+            else
+            {
+                C.TemPai = false;
+            }
+
+            if (Rdb_Masculino.Checked)
+            {
+                C.Genero = 0;
+            }
+            if (Rdb_Feminino.Checked)
+            {
+                C.Genero = 1;
+            }
+            if (Rdb_Outros.Checked)
+            {
+                C.Genero = 2;
+            }
+            C.CPF = Txt_CPF.Text;
+
+            C.CEP = Txt_CEP.Text;
+            C.Logradouro = Txt_Logradouro.Text;
+            C.Complemento = Txt_Complemento.Text;
+            C.Bairro = Txt_Bairro.Text;
+            C.Cidade = Txt_Cidade.Text;
+            
+            if (Cmb_Estados.SelectedIndex < 0)
+            {
+                C.Estado = null;
+            }
+            else
+            {
+                C.Estado = Cmb_Estados.Items[Cmb_Estados.SelectedIndex].ToString();
+            }
+
+            C.telefone = Txt_Telefone.Text;
+            C.profissao = Txt_Profissao.Text;
+            
+            if (Information.IsNumeric(Txt_RendaFamiliar.Text))
+            {
+                Double vRenda = Convert.ToDouble(Txt_RendaFamiliar.Text);
+                if (vRenda < 0)
+                {
+                    C.RendaFamiliar = 0;
+                }
+                else
+                {
+                    C.RendaFamiliar = vRenda;
+                }
+            }
+
+            return C;
         }
     }
 }

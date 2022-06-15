@@ -49,20 +49,16 @@ namespace CursoWindowsForms
             this.Lbl_Complemento = new System.Windows.Forms.Label();
             this.Txt_Bairro = new System.Windows.Forms.TextBox();
             this.Lbl_Bairro = new System.Windows.Forms.Label();
-            this.Txt_Estado = new System.Windows.Forms.TextBox();
-            this.Lbl_Estado = new System.Windows.Forms.Label();
             this.Txt_Telefone = new System.Windows.Forms.TextBox();
             this.Txt_Profissao = new System.Windows.Forms.TextBox();
             this.Txt_RendaFamiliar = new System.Windows.Forms.TextBox();
             this.Txt_Codigo = new System.Windows.Forms.TextBox();
             this.Grp_Código = new System.Windows.Forms.GroupBox();
             this.Grp_DadosPessoais = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Cmb_Estados = new System.Windows.Forms.ComboBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Grp_Genero = new System.Windows.Forms.GroupBox();
+            this.Rdb_Masculino = new System.Windows.Forms.RadioButton();
+            this.Rdb_Outros = new System.Windows.Forms.RadioButton();
+            this.Rdb_Feminino = new System.Windows.Forms.RadioButton();
             this.Grp_TemPai = new System.Windows.Forms.GroupBox();
             this.Chk_TemPai = new System.Windows.Forms.CheckBox();
             this.Grp_Endereco = new System.Windows.Forms.GroupBox();
@@ -73,12 +69,16 @@ namespace CursoWindowsForms
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.ApagatoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CancelartoolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Txt_Cidade = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Cmb_Estados = new System.Windows.Forms.ComboBox();
             Lbl_Telefone = new System.Windows.Forms.Label();
             Lbl_Profissao = new System.Windows.Forms.Label();
             Lbl_RendaFamiliar = new System.Windows.Forms.Label();
             this.Grp_Código.SuspendLayout();
             this.Grp_DadosPessoais.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.Grp_Genero.SuspendLayout();
             this.Grp_TemPai.SuspendLayout();
             this.Grp_Endereco.SuspendLayout();
             this.Grp_OutrosDados.SuspendLayout();
@@ -128,7 +128,7 @@ namespace CursoWindowsForms
             this.Txt_CPF.Location = new System.Drawing.Point(6, 150);
             this.Txt_CPF.Name = "Txt_CPF";
             this.Txt_CPF.Size = new System.Drawing.Size(225, 20);
-            this.Txt_CPF.TabIndex = 6;
+            this.Txt_CPF.TabIndex = 9;
             // 
             // Lbl_NomeCliente
             // 
@@ -153,7 +153,7 @@ namespace CursoWindowsForms
             this.Txt_NomePai.Location = new System.Drawing.Point(6, 113);
             this.Txt_NomePai.Name = "Txt_NomePai";
             this.Txt_NomePai.Size = new System.Drawing.Size(548, 20);
-            this.Txt_NomePai.TabIndex = 3;
+            this.Txt_NomePai.TabIndex = 7;
             // 
             // Lbl_NomePai
             // 
@@ -169,7 +169,7 @@ namespace CursoWindowsForms
             this.Txt_NomeMae.Location = new System.Drawing.Point(6, 73);
             this.Txt_NomeMae.Name = "Txt_NomeMae";
             this.Txt_NomeMae.Size = new System.Drawing.Size(548, 20);
-            this.Txt_NomeMae.TabIndex = 4;
+            this.Txt_NomeMae.TabIndex = 6;
             // 
             // Lbl_NomeMae
             // 
@@ -185,7 +185,7 @@ namespace CursoWindowsForms
             this.Txt_CEP.Location = new System.Drawing.Point(9, 33);
             this.Txt_CEP.Name = "Txt_CEP";
             this.Txt_CEP.Size = new System.Drawing.Size(271, 20);
-            this.Txt_CEP.TabIndex = 7;
+            this.Txt_CEP.TabIndex = 10;
             // 
             // Lbl_CEP
             // 
@@ -203,7 +203,7 @@ namespace CursoWindowsForms
             this.Txt_Logradouro.Location = new System.Drawing.Point(9, 73);
             this.Txt_Logradouro.Name = "Txt_Logradouro";
             this.Txt_Logradouro.Size = new System.Drawing.Size(779, 20);
-            this.Txt_Logradouro.TabIndex = 8;
+            this.Txt_Logradouro.TabIndex = 13;
             // 
             // Lbl_Logradouro
             // 
@@ -219,7 +219,7 @@ namespace CursoWindowsForms
             this.Txt_Complemento.Location = new System.Drawing.Point(9, 113);
             this.Txt_Complemento.Name = "Txt_Complemento";
             this.Txt_Complemento.Size = new System.Drawing.Size(328, 20);
-            this.Txt_Complemento.TabIndex = 9;
+            this.Txt_Complemento.TabIndex = 14;
             // 
             // Lbl_Complemento
             // 
@@ -235,7 +235,7 @@ namespace CursoWindowsForms
             this.Txt_Bairro.Location = new System.Drawing.Point(344, 113);
             this.Txt_Bairro.Name = "Txt_Bairro";
             this.Txt_Bairro.Size = new System.Drawing.Size(311, 20);
-            this.Txt_Bairro.TabIndex = 10;
+            this.Txt_Bairro.TabIndex = 15;
             // 
             // Lbl_Bairro
             // 
@@ -246,37 +246,19 @@ namespace CursoWindowsForms
             this.Lbl_Bairro.TabIndex = 16;
             this.Lbl_Bairro.Text = "Bairro";
             // 
-            // Txt_Estado
-            // 
-            this.Txt_Estado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_Estado.Location = new System.Drawing.Point(664, 113);
-            this.Txt_Estado.Name = "Txt_Estado";
-            this.Txt_Estado.Size = new System.Drawing.Size(124, 20);
-            this.Txt_Estado.TabIndex = 11;
-            // 
-            // Lbl_Estado
-            // 
-            this.Lbl_Estado.AutoSize = true;
-            this.Lbl_Estado.Location = new System.Drawing.Point(661, 97);
-            this.Lbl_Estado.Name = "Lbl_Estado";
-            this.Lbl_Estado.Size = new System.Drawing.Size(40, 13);
-            this.Lbl_Estado.TabIndex = 18;
-            this.Lbl_Estado.Text = "Estado";
-            // 
             // Txt_Telefone
             // 
             this.Txt_Telefone.Location = new System.Drawing.Point(10, 37);
             this.Txt_Telefone.Name = "Txt_Telefone";
             this.Txt_Telefone.Size = new System.Drawing.Size(100, 20);
-            this.Txt_Telefone.TabIndex = 12;
+            this.Txt_Telefone.TabIndex = 16;
             // 
             // Txt_Profissao
             // 
             this.Txt_Profissao.Location = new System.Drawing.Point(118, 37);
             this.Txt_Profissao.Name = "Txt_Profissao";
             this.Txt_Profissao.Size = new System.Drawing.Size(392, 20);
-            this.Txt_Profissao.TabIndex = 13;
+            this.Txt_Profissao.TabIndex = 17;
             // 
             // Txt_RendaFamiliar
             // 
@@ -285,7 +267,7 @@ namespace CursoWindowsForms
             this.Txt_RendaFamiliar.Location = new System.Drawing.Point(516, 37);
             this.Txt_RendaFamiliar.Name = "Txt_RendaFamiliar";
             this.Txt_RendaFamiliar.Size = new System.Drawing.Size(269, 20);
-            this.Txt_RendaFamiliar.TabIndex = 14;
+            this.Txt_RendaFamiliar.TabIndex = 18;
             // 
             // Txt_Codigo
             // 
@@ -308,9 +290,7 @@ namespace CursoWindowsForms
             // 
             this.Grp_DadosPessoais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Grp_DadosPessoais.Controls.Add(this.label1);
-            this.Grp_DadosPessoais.Controls.Add(this.Cmb_Estados);
-            this.Grp_DadosPessoais.Controls.Add(this.groupBox1);
+            this.Grp_DadosPessoais.Controls.Add(this.Grp_Genero);
             this.Grp_DadosPessoais.Controls.Add(this.Grp_TemPai);
             this.Grp_DadosPessoais.Controls.Add(this.Txt_NomeCliente);
             this.Grp_DadosPessoais.Controls.Add(this.Lbl_NomeCliente);
@@ -327,67 +307,50 @@ namespace CursoWindowsForms
             this.Grp_DadosPessoais.TabStop = false;
             this.Grp_DadosPessoais.Text = "Dados Pessoais";
             // 
-            // label1
+            // Grp_Genero
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 134);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Estado";
+            this.Grp_Genero.Controls.Add(this.Rdb_Masculino);
+            this.Grp_Genero.Controls.Add(this.Rdb_Outros);
+            this.Grp_Genero.Controls.Add(this.Rdb_Feminino);
+            this.Grp_Genero.Location = new System.Drawing.Point(583, 17);
+            this.Grp_Genero.Name = "Grp_Genero";
+            this.Grp_Genero.Size = new System.Drawing.Size(118, 71);
+            this.Grp_Genero.TabIndex = 34;
+            this.Grp_Genero.TabStop = false;
+            this.Grp_Genero.Text = "Genero";
             // 
-            // Cmb_Estados
+            // Rdb_Masculino
             // 
-            this.Cmb_Estados.FormattingEnabled = true;
-            this.Cmb_Estados.Location = new System.Drawing.Point(271, 150);
-            this.Cmb_Estados.Name = "Cmb_Estados";
-            this.Cmb_Estados.Size = new System.Drawing.Size(283, 21);
-            this.Cmb_Estados.TabIndex = 19;
+            this.Rdb_Masculino.AutoSize = true;
+            this.Rdb_Masculino.Location = new System.Drawing.Point(4, 12);
+            this.Rdb_Masculino.Name = "Rdb_Masculino";
+            this.Rdb_Masculino.Size = new System.Drawing.Size(73, 17);
+            this.Rdb_Masculino.TabIndex = 3;
+            this.Rdb_Masculino.TabStop = true;
+            this.Rdb_Masculino.Text = "Masculino";
+            this.Rdb_Masculino.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // Rdb_Outros
             // 
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Location = new System.Drawing.Point(583, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(118, 71);
-            this.groupBox1.TabIndex = 34;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Genero";
+            this.Rdb_Outros.AutoSize = true;
+            this.Rdb_Outros.Location = new System.Drawing.Point(4, 49);
+            this.Rdb_Outros.Name = "Rdb_Outros";
+            this.Rdb_Outros.Size = new System.Drawing.Size(56, 17);
+            this.Rdb_Outros.TabIndex = 5;
+            this.Rdb_Outros.TabStop = true;
+            this.Rdb_Outros.Text = "Outros";
+            this.Rdb_Outros.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // Rdb_Feminino
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(4, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(73, 17);
-            this.radioButton1.TabIndex = 31;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Masculino";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(4, 49);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(56, 17);
-            this.radioButton3.TabIndex = 10;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Outros";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(4, 31);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(67, 17);
-            this.radioButton2.TabIndex = 32;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Feminino";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.Rdb_Feminino.AutoSize = true;
+            this.Rdb_Feminino.Location = new System.Drawing.Point(4, 31);
+            this.Rdb_Feminino.Name = "Rdb_Feminino";
+            this.Rdb_Feminino.Size = new System.Drawing.Size(67, 17);
+            this.Rdb_Feminino.TabIndex = 4;
+            this.Rdb_Feminino.TabStop = true;
+            this.Rdb_Feminino.Text = "Feminino";
+            this.Rdb_Feminino.UseVisualStyleBackColor = true;
             // 
             // Grp_TemPai
             // 
@@ -404,7 +367,7 @@ namespace CursoWindowsForms
             this.Chk_TemPai.Location = new System.Drawing.Point(7, 19);
             this.Chk_TemPai.Name = "Chk_TemPai";
             this.Chk_TemPai.Size = new System.Drawing.Size(113, 17);
-            this.Chk_TemPai.TabIndex = 0;
+            this.Chk_TemPai.TabIndex = 8;
             this.Chk_TemPai.Text = "Pai Desconhecido";
             this.Chk_TemPai.UseVisualStyleBackColor = true;
             this.Chk_TemPai.CheckedChanged += new System.EventHandler(this.Chk_TemPai_CheckedChanged);
@@ -413,6 +376,10 @@ namespace CursoWindowsForms
             // 
             this.Grp_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Grp_Endereco.Controls.Add(this.label1);
+            this.Grp_Endereco.Controls.Add(this.Cmb_Estados);
+            this.Grp_Endereco.Controls.Add(this.label2);
+            this.Grp_Endereco.Controls.Add(this.Txt_Cidade);
             this.Grp_Endereco.Controls.Add(this.Lbl_Logradouro);
             this.Grp_Endereco.Controls.Add(this.Lbl_CEP);
             this.Grp_Endereco.Controls.Add(this.Txt_CEP);
@@ -421,8 +388,6 @@ namespace CursoWindowsForms
             this.Grp_Endereco.Controls.Add(this.Txt_Complemento);
             this.Grp_Endereco.Controls.Add(this.Lbl_Bairro);
             this.Grp_Endereco.Controls.Add(this.Txt_Bairro);
-            this.Grp_Endereco.Controls.Add(this.Lbl_Estado);
-            this.Grp_Endereco.Controls.Add(this.Txt_Estado);
             this.Grp_Endereco.Location = new System.Drawing.Point(15, 268);
             this.Grp_Endereco.Name = "Grp_Endereco";
             this.Grp_Endereco.Size = new System.Drawing.Size(794, 149);
@@ -507,6 +472,41 @@ namespace CursoWindowsForms
             this.CancelartoolStripButton.Size = new System.Drawing.Size(23, 22);
             this.CancelartoolStripButton.Text = "Cancelar";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(578, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Cidade";
+            // 
+            // Txt_Cidade
+            // 
+            this.Txt_Cidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txt_Cidade.Location = new System.Drawing.Point(577, 33);
+            this.Txt_Cidade.Name = "Txt_Cidade";
+            this.Txt_Cidade.Size = new System.Drawing.Size(124, 20);
+            this.Txt_Cidade.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(286, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Estado";
+            // 
+            // Cmb_Estados
+            // 
+            this.Cmb_Estados.FormattingEnabled = true;
+            this.Cmb_Estados.Location = new System.Drawing.Point(289, 33);
+            this.Cmb_Estados.Name = "Cmb_Estados";
+            this.Cmb_Estados.Size = new System.Drawing.Size(283, 21);
+            this.Cmb_Estados.TabIndex = 11;
+            // 
             // Frm_CadastroCliente_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,8 +522,8 @@ namespace CursoWindowsForms
             this.Grp_Código.PerformLayout();
             this.Grp_DadosPessoais.ResumeLayout(false);
             this.Grp_DadosPessoais.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Grp_Genero.ResumeLayout(false);
+            this.Grp_Genero.PerformLayout();
             this.Grp_TemPai.ResumeLayout(false);
             this.Grp_TemPai.PerformLayout();
             this.Grp_Endereco.ResumeLayout(false);
@@ -555,8 +555,6 @@ namespace CursoWindowsForms
         private System.Windows.Forms.Label Lbl_Complemento;
         private System.Windows.Forms.TextBox Txt_Bairro;
         private System.Windows.Forms.Label Lbl_Bairro;
-        private System.Windows.Forms.TextBox Txt_Estado;
-        private System.Windows.Forms.Label Lbl_Estado;
         private System.Windows.Forms.TextBox Txt_Telefone;
         private System.Windows.Forms.TextBox Txt_Profissao;
         private System.Windows.Forms.TextBox Txt_RendaFamiliar;
@@ -567,17 +565,19 @@ namespace CursoWindowsForms
         private System.Windows.Forms.GroupBox Grp_OutrosDados;
         private System.Windows.Forms.GroupBox Grp_TemPai;
         private System.Windows.Forms.CheckBox Chk_TemPai;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox Cmb_Estados;
+        private System.Windows.Forms.GroupBox Grp_Genero;
+        private System.Windows.Forms.RadioButton Rdb_Masculino;
+        private System.Windows.Forms.RadioButton Rdb_Outros;
+        private System.Windows.Forms.RadioButton Rdb_Feminino;
         private System.Windows.Forms.ToolStrip Tls_Principal;
         private System.Windows.Forms.ToolStripButton novoToolStripButton;
         private System.Windows.Forms.ToolStripButton abrirToolStripButton;
         private System.Windows.Forms.ToolStripButton salvarToolStripButton;
         private System.Windows.Forms.ToolStripButton ApagatoolStripButton;
         private System.Windows.Forms.ToolStripButton CancelartoolStripButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Txt_Cidade;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox Cmb_Estados;
     }
 }
