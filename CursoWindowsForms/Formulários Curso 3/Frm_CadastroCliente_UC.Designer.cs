@@ -64,6 +64,8 @@ namespace CursoWindowsForms
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Cmb_Estados = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             Lbl_Telefone = new System.Windows.Forms.Label();
             Lbl_Profissao = new System.Windows.Forms.Label();
             Lbl_RendaFamiliar = new System.Windows.Forms.Label();
@@ -105,7 +107,7 @@ namespace CursoWindowsForms
             // Lbl_CPF
             // 
             this.Lbl_CPF.AutoSize = true;
-            this.Lbl_CPF.Location = new System.Drawing.Point(6, 132);
+            this.Lbl_CPF.Location = new System.Drawing.Point(6, 134);
             this.Lbl_CPF.Name = "Lbl_CPF";
             this.Lbl_CPF.Size = new System.Drawing.Size(27, 13);
             this.Lbl_CPF.TabIndex = 0;
@@ -115,7 +117,7 @@ namespace CursoWindowsForms
             // 
             this.Txt_CPF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_CPF.Location = new System.Drawing.Point(6, 148);
+            this.Txt_CPF.Location = new System.Drawing.Point(6, 150);
             this.Txt_CPF.Name = "Txt_CPF";
             this.Txt_CPF.Size = new System.Drawing.Size(225, 20);
             this.Txt_CPF.TabIndex = 6;
@@ -158,7 +160,7 @@ namespace CursoWindowsForms
             // 
             this.Txt_NomeMae.Location = new System.Drawing.Point(6, 73);
             this.Txt_NomeMae.Name = "Txt_NomeMae";
-            this.Txt_NomeMae.Size = new System.Drawing.Size(552, 20);
+            this.Txt_NomeMae.Size = new System.Drawing.Size(548, 20);
             this.Txt_NomeMae.TabIndex = 4;
             // 
             // Lbl_NomeMae
@@ -298,6 +300,8 @@ namespace CursoWindowsForms
             // 
             this.Grp_DadosPessoais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.Grp_DadosPessoais.Controls.Add(this.label1);
+            this.Grp_DadosPessoais.Controls.Add(this.Cmb_Estados);
             this.Grp_DadosPessoais.Controls.Add(this.groupBox1);
             this.Grp_DadosPessoais.Controls.Add(this.Grp_TemPai);
             this.Grp_DadosPessoais.Controls.Add(this.Txt_NomeCliente);
@@ -418,6 +422,23 @@ namespace CursoWindowsForms
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Genero";
             // 
+            // Cmb_Estados
+            // 
+            this.Cmb_Estados.FormattingEnabled = true;
+            this.Cmb_Estados.Location = new System.Drawing.Point(271, 150);
+            this.Cmb_Estados.Name = "Cmb_Estados";
+            this.Cmb_Estados.Size = new System.Drawing.Size(283, 21);
+            this.Cmb_Estados.TabIndex = 19;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(268, 134);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Estado";
+            // 
             // Frm_CadastroCliente_UC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,5 +499,7 @@ namespace CursoWindowsForms
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox Cmb_Estados;
     }
 }
