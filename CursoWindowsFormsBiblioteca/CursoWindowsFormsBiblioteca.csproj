@@ -48,6 +48,7 @@
     <Compile Include="Classes\CEP.cs" />
     <Compile Include="Classes\Cliente.cs" />
     <Compile Include="Cls_Uteis.cs" />
+    <Compile Include="Databases\Fichario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

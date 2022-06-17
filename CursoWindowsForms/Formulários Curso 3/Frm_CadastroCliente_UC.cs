@@ -4,6 +4,7 @@ using CursoWindowsFormsBiblioteca.Classes;
 using CursoWindowsFormsBiblioteca;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.VisualBasic;
+using CursoWindowsFormsBiblioteca.Databases;
 
 namespace CursoWindowsForms
 {
@@ -70,6 +71,17 @@ namespace CursoWindowsForms
                 c.ValidaClasse();
                 c.ValidaComponente();
                 string clienteJson = Cliente.SerializedClassUnit(c);
+
+                Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
+                if (F.status == true)
+                {
+                    MessageBox.Show("OK " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 MessageBox.Show("Cliente será incluído. O conteudo será " + clienteJson, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
