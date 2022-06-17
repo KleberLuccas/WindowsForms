@@ -312,10 +312,7 @@ namespace CursoWindowsForms
                 Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
                 if (F.status)
                 {
-                    string clienteJson = F.Apagar(Txt_Codigo.Text);
-                    Cliente.unit C = new Cliente.unit();
-                    C = Cliente.DesSerializedClassUnit(clienteJson);
-                    EscreverFormulario(C);
+                    F.Apagar(Txt_Codigo.Text);
                 }
                 else
                 {
