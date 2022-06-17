@@ -62,17 +62,17 @@ namespace CursoWindowsForms
             this.Grp_TemPai = new System.Windows.Forms.GroupBox();
             this.Chk_TemPai = new System.Windows.Forms.CheckBox();
             this.Grp_Endereco = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Cmb_Estados = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Txt_Cidade = new System.Windows.Forms.TextBox();
             this.Grp_OutrosDados = new System.Windows.Forms.GroupBox();
             this.Tls_Principal = new System.Windows.Forms.ToolStrip();
             this.novoToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.abrirToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.salvarToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.ApagatoolStripButton = new System.Windows.Forms.ToolStripButton();
             this.CancelartoolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Txt_Cidade = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Cmb_Estados = new System.Windows.Forms.ComboBox();
+            this.ApagatoolStripButton = new System.Windows.Forms.ToolStripButton();
             Lbl_Telefone = new System.Windows.Forms.Label();
             Lbl_Profissao = new System.Windows.Forms.Label();
             Lbl_RendaFamiliar = new System.Windows.Forms.Label();
@@ -141,8 +141,6 @@ namespace CursoWindowsForms
             // 
             // Txt_NomeCliente
             // 
-            this.Txt_NomeCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Txt_NomeCliente.Location = new System.Drawing.Point(6, 34);
             this.Txt_NomeCliente.Name = "Txt_NomeCliente";
             this.Txt_NomeCliente.Size = new System.Drawing.Size(548, 20);
@@ -186,6 +184,7 @@ namespace CursoWindowsForms
             this.Txt_CEP.Name = "Txt_CEP";
             this.Txt_CEP.Size = new System.Drawing.Size(271, 20);
             this.Txt_CEP.TabIndex = 10;
+            this.Txt_CEP.Leave += new System.EventHandler(this.Txt_CEP_Leave);
             // 
             // Lbl_CEP
             // 
@@ -288,8 +287,6 @@ namespace CursoWindowsForms
             // 
             // Grp_DadosPessoais
             // 
-            this.Grp_DadosPessoais.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Grp_DadosPessoais.Controls.Add(this.Grp_Genero);
             this.Grp_DadosPessoais.Controls.Add(this.Grp_TemPai);
             this.Grp_DadosPessoais.Controls.Add(this.Txt_NomeCliente);
@@ -374,8 +371,6 @@ namespace CursoWindowsForms
             // 
             // Grp_Endereco
             // 
-            this.Grp_Endereco.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Grp_Endereco.Controls.Add(this.label1);
             this.Grp_Endereco.Controls.Add(this.Cmb_Estados);
             this.Grp_Endereco.Controls.Add(this.label2);
@@ -395,10 +390,43 @@ namespace CursoWindowsForms
             this.Grp_Endereco.TabStop = false;
             this.Grp_Endereco.Text = "Endereço";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(286, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Estado";
+            // 
+            // Cmb_Estados
+            // 
+            this.Cmb_Estados.FormattingEnabled = true;
+            this.Cmb_Estados.Location = new System.Drawing.Point(289, 33);
+            this.Cmb_Estados.Name = "Cmb_Estados";
+            this.Cmb_Estados.Size = new System.Drawing.Size(283, 21);
+            this.Cmb_Estados.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(578, 17);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 13);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Cidade";
+            // 
+            // Txt_Cidade
+            // 
+            this.Txt_Cidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Txt_Cidade.Location = new System.Drawing.Point(577, 33);
+            this.Txt_Cidade.Name = "Txt_Cidade";
+            this.Txt_Cidade.Size = new System.Drawing.Size(208, 20);
+            this.Txt_Cidade.TabIndex = 12;
+            // 
             // Grp_OutrosDados
             // 
-            this.Grp_OutrosDados.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Grp_OutrosDados.Controls.Add(Lbl_Profissao);
             this.Grp_OutrosDados.Controls.Add(Lbl_Telefone);
             this.Grp_OutrosDados.Controls.Add(this.Txt_Telefone);
@@ -454,15 +482,6 @@ namespace CursoWindowsForms
             this.salvarToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.salvarToolStripButton.Text = "&Salvar";
             // 
-            // ApagatoolStripButton
-            // 
-            this.ApagatoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.ApagatoolStripButton.Image = global::CursoWindowsForms.Properties.Resources.LimparBarra;
-            this.ApagatoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ApagatoolStripButton.Name = "ApagatoolStripButton";
-            this.ApagatoolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.ApagatoolStripButton.Text = "Apagar";
-            // 
             // CancelartoolStripButton
             // 
             this.CancelartoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -472,40 +491,15 @@ namespace CursoWindowsForms
             this.CancelartoolStripButton.Size = new System.Drawing.Size(23, 22);
             this.CancelartoolStripButton.Text = "Cancelar";
             // 
-            // label2
+            // ApagatoolStripButton
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(578, 17);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Cidade";
-            // 
-            // Txt_Cidade
-            // 
-            this.Txt_Cidade.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Txt_Cidade.Location = new System.Drawing.Point(577, 33);
-            this.Txt_Cidade.Name = "Txt_Cidade";
-            this.Txt_Cidade.Size = new System.Drawing.Size(124, 20);
-            this.Txt_Cidade.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(286, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Estado";
-            // 
-            // Cmb_Estados
-            // 
-            this.Cmb_Estados.FormattingEnabled = true;
-            this.Cmb_Estados.Location = new System.Drawing.Point(289, 33);
-            this.Cmb_Estados.Name = "Cmb_Estados";
-            this.Cmb_Estados.Size = new System.Drawing.Size(283, 21);
-            this.Cmb_Estados.TabIndex = 11;
+            this.ApagatoolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.ApagatoolStripButton.Image = global::CursoWindowsForms.Properties.Resources.LimparBarra;
+            this.ApagatoolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ApagatoolStripButton.Name = "ApagatoolStripButton";
+            this.ApagatoolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.ApagatoolStripButton.Text = "Apagar";
+            this.ApagatoolStripButton.Click += new System.EventHandler(this.ApagatoolStripButton_Click);
             // 
             // Frm_CadastroCliente_UC
             // 

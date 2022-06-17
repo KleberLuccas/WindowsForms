@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CursoWindowsForms.Imagens
+namespace CursoWindowsFormsBiblioteca.Classes
 {
-    class CEP
+    public class CEP
     {
-        public class Unit
+        public class unit
         {
             // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
                 public string cep { get; set; }
@@ -25,9 +25,14 @@ namespace CursoWindowsForms.Imagens
 
         }
 
-        public static Unit DesSerializedClassUnit(string vJson)
+        public static unit DesSerializedClassUnit(string vJson)
         {
-            return JsonConvert.DeserializeObject<Unit>(vJson);
+            return JsonConvert.DeserializeObject<unit>(vJson);
+        }
+
+        public static string SerializedClassUnit(unit unit)
+        {
+            return JsonConvert.SerializeObject(unit);
         }
     }
 }

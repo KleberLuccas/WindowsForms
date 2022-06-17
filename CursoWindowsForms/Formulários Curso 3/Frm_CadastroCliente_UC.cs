@@ -64,16 +64,13 @@ namespace CursoWindowsForms
         {
             try
             {
-                var vJson = Cls_Uteis.GeraJSONCEP("74947540");
-
-                CEP
-
                 Cliente.unit c = new Cliente.unit();
                 c = LeituraFormulario();
                 c.Id = Txt_Codigo.Text;
                 c.ValidaClasse();
                 c.ValidaComponente();
-                MessageBox.Show("Foi inicializada sem erros", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string clienteJson = Cliente.SerializedClassUnit(c);
+                MessageBox.Show("Cliente será incluído. O conteudo será " + clienteJson, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ValidationException Ex)
             {
@@ -148,6 +145,61 @@ namespace CursoWindowsForms
             }
 
             return C;
+        }
+
+        private void Txt_CEP_Leave(object sender, EventArgs e)
+        {
+
+            string vCEP = Txt_CEP.Text;
+
+            if (vCEP != "")
+            {
+                if (vCEP.Length == 8)
+                {
+                    if (Information.IsNumeric(vCEP))
+                    {
+                        var vJson = Cls_Uteis.GeraJSONCEP(vCEP);
+
+                        CEP.unit Cep = new CEP.unit();
+                        Cep = CEP.DesSerializedClassUnit(vJson);
+                        Txt_Bairro.Text = Cep.bairro;
+                        Txt_Logradouro.Text = Cep.logradouro;
+                        Txt_Cidade.Text = Cep.localidade;
+
+                        Cmb_Estados.SelectedIndex = -1;
+                        for (int i = 0; i <= Cmb_Estados.Items.Count - 1; i++)
+                        {
+                            var vPos = Strings.InStr(Cmb_Estados.Items[i].ToString(), "(" + Cep.uf + ")" );
+
+                            if (vPos > 0)
+                            {
+                                Cmb_Estados.SelectedIndex = i;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ApagatoolStripButton_Click(object sender, EventArgs e)
+        {
+            Txt_NomeCliente.Text = "";
+            Txt_NomeMae.Text = "";
+            Txt_NomePai.Text = "";
+            Txt_CPF.Text = "";
+            Txt_CEP.Text = "";
+            Txt_Complemento.Text = "";
+            Txt_Cidade.Text = "";
+            Txt_Bairro.Text = "";
+            Txt_Codigo.Text = "";
+            Txt_Logradouro.Text = "";
+            Txt_Profissao.Text = "";
+            Txt_RendaFamiliar.Text = "";
+            Txt_Telefone.Text = "";
+            Cmb_Estados.SelectedIndex = -1;
+
+            Chk_TemPai.Checked = false;
+            Rdb_Masculino.Checked = true;
         }
     }
 }
