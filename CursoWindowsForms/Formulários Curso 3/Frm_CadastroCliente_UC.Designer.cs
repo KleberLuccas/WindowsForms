@@ -472,6 +472,7 @@ namespace CursoWindowsForms
             this.abrirToolStripButton.Name = "abrirToolStripButton";
             this.abrirToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.abrirToolStripButton.Text = "&Abrir";
+            this.abrirToolStripButton.Click += new System.EventHandler(this.abrirToolStripButton_Click);
             // 
             // salvarToolStripButton
             // 
@@ -490,6 +491,7 @@ namespace CursoWindowsForms
             this.CancelartoolStripButton.Name = "CancelartoolStripButton";
             this.CancelartoolStripButton.Size = new System.Drawing.Size(23, 22);
             this.CancelartoolStripButton.Text = "Cancelar";
+            this.CancelartoolStripButton.Click += new System.EventHandler(this.CancelartoolStripButton_Click);
             // 
             // ApagatoolStripButton
             // 

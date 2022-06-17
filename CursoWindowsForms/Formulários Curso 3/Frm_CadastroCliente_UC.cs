@@ -75,7 +75,15 @@ namespace CursoWindowsForms
                 Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
                 if (F.status == true)
                 {
-                    MessageBox.Show("OK " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    F.Incluir(c.Id, clienteJson);
+                    if(F.status)
+                    {
+                        MessageBox.Show("OK " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -159,6 +167,62 @@ namespace CursoWindowsForms
             return C;
         }
 
+        public void EscreverFormulario(Cliente.unit C)
+        {
+            Txt_Codigo.Text = C.Id;
+            Txt_NomeCliente.Text = C.Nome;
+            Txt_NomeMae.Text = C.NomeDaMae;
+            Txt_NomePai.Text = C.NomeDoPai;
+            if (C.TemPai == true)
+            {
+                Chk_TemPai.Checked = true;
+                Txt_NomePai.Text = "";
+            }
+            else
+            {
+                Chk_TemPai.Checked = false;
+                Txt_NomePai.Text = C.NomeDoPai;
+            }
+
+            if (C.Genero == 0)
+            {
+                Rdb_Masculino.Checked = true;
+            }
+            if (C.Genero == 1)
+            {
+                Rdb_Feminino.Checked = true;
+            }
+            if (C.Genero == 2)
+            {
+                Rdb_Outros.Checked = true;
+            }
+            Txt_CPF.Text = C.CPF;
+
+            Txt_CEP.Text = C.CEP;
+            Txt_Logradouro.Text = C.Logradouro;
+            Txt_Complemento.Text = C.Complemento;
+            Txt_Bairro.Text = C.Bairro;
+            Txt_Cidade.Text = C.Cidade;
+            Txt_Telefone.Text = C.telefone;
+            Txt_Profissao.Text = C.profissao;
+
+            if (C.Estado == "")
+            {
+                Cmb_Estados.SelectedIndex = -1;
+            }
+            else
+            {
+                for (int i = 0; i <= Cmb_Estados.Items.Count - 1; i++)
+                {
+                    if (C.Estado == Cmb_Estados.Items[i].ToString())
+                    {
+                        Cmb_Estados.SelectedIndex = i;
+                    }
+                }
+            }
+            Txt_RendaFamiliar.Text = C.RendaFamiliar.ToString();
+        }
+
         private void Txt_CEP_Leave(object sender, EventArgs e)
         {
 
@@ -212,6 +276,52 @@ namespace CursoWindowsForms
 
             Chk_TemPai.Checked = false;
             Rdb_Masculino.Checked = true;
+        }
+
+        private void abrirToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_Codigo.Text == "")
+            {
+                MessageBox.Show("Codigo do cliente vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario"); 
+                if (F.status)
+                {
+                    string clienteJson = F.Buscar(Txt_Codigo.Text);
+                    Cliente.unit C = new Cliente.unit();
+                    C = Cliente.DesSerializedClassUnit(clienteJson);
+                    EscreverFormulario(C);
+                }
+                else
+                {
+                    MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void CancelartoolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_Codigo.Text == "")
+            {
+                MessageBox.Show("Codigo do cliente vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
+                if (F.status)
+                {
+                    string clienteJson = F.Apagar(Txt_Codigo.Text);
+                    Cliente.unit C = new Cliente.unit();
+                    C = Cliente.DesSerializedClassUnit(clienteJson);
+                    EscreverFormulario(C);
+                }
+                else
+                {
+                    MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

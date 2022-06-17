@@ -34,17 +34,53 @@ namespace CursoWindowsFormsBiblioteca.Databases
         
         public void Incluir(string Id, string jsonUnit)
         {
-            if (File.Exists(diretorio + "\\" + Id + ".json"))
+            status = true;
+            try
+            {
+                if (File.Exists(diretorio + "\\" + Id + ".json"))
+                {
+                    status = false;
+                    mensagem = "Inclusão não permitida porque o identificador já existe" + Id;
+                }
+                else
+                {
+                    File.WriteAllText(diretorio + "\\" + Id + ".json", jsonUnit);
+                    mensagem = "Inclusão efetuada com sucesso, identificador:" + Id;
+                    status = true;
+                }
+            }
+            catch (Exception ex)
             {
                 status = false;
-                mensagem = "Inclusão não permitida porque o identificador já existe" + Id;
+                mensagem = "Conexão com o fichário com erro" + ex.Message;
             }
-            else
+        }
+
+        public string Buscar(string Id)
+        {
+            status = true;
+            try
             {
-                File.WriteAllText(diretorio + "\\" + Id + ".json", jsonUnit);
-                mensagem = "Inclusão efetuada com sucesso, identificador:" + Id;
-                status = true;
+                if (!File.Exists(diretorio + "\\" + Id + ".json"))
+                {
+                    status = false;
+                    mensagem = "Identificador não existente" + Id;
+                }
+                else
+                {
+                    string conteudo = File.ReadAllText(diretorio + "\\" + Id + ".json");
+                    mensagem = "Inclusão efetuada com sucesso, identificador:" + Id;
+                    status = true;
+                    return conteudo;
+                }
             }
+            catch (Exception ex)
+            {
+                status = false;
+                mensagem = "Erro ao buscar o conteúdo do identificador." + ex.Message;
+            }
+
+            return ""; 
         }
     }
 }
