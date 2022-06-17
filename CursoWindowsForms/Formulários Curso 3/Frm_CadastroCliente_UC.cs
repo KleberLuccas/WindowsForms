@@ -64,6 +64,10 @@ namespace CursoWindowsForms
         {
             try
             {
+                var vJson = Cls_Uteis.GeraJSONCEP("74947540");
+
+                CEP
+
                 Cliente.unit c = new Cliente.unit();
                 c = LeituraFormulario();
                 c.Id = Txt_Codigo.Text;
