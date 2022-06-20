@@ -223,6 +223,26 @@ namespace CursoWindowsForms
             Txt_RendaFamiliar.Text = C.RendaFamiliar.ToString();
         }
 
+        private void LimparFormulario()
+        {
+            Txt_Bairro.Text = "";
+            Txt_CEP.Text = "";
+            Txt_Complemento.Text = "";
+            Txt_CPF.Text = "";
+            Cmb_Estados.SelectedIndex = -1;
+            Txt_Codigo.Text = "";
+            Txt_Logradouro.Text = "";
+            Txt_NomeCliente.Text = "";
+            Txt_NomeMae.Text = "";
+            Txt_NomePai.Text = "";
+            Txt_Profissao.Text = "";
+            Txt_RendaFamiliar.Text = "";
+            Txt_Telefone.Text = "";
+            Txt_Cidade.Text = "";
+            Chk_TemPai.Checked = false;
+            Rdb_Masculino.Checked = true;
+        }
+
         private void Txt_CEP_Leave(object sender, EventArgs e)
         {
 
@@ -259,23 +279,7 @@ namespace CursoWindowsForms
 
         private void ApagatoolStripButton_Click(object sender, EventArgs e)
         {
-            Txt_NomeCliente.Text = "";
-            Txt_NomeMae.Text = "";
-            Txt_NomePai.Text = "";
-            Txt_CPF.Text = "";
-            Txt_CEP.Text = "";
-            Txt_Complemento.Text = "";
-            Txt_Cidade.Text = "";
-            Txt_Bairro.Text = "";
-            Txt_Codigo.Text = "";
-            Txt_Logradouro.Text = "";
-            Txt_Profissao.Text = "";
-            Txt_RendaFamiliar.Text = "";
-            Txt_Telefone.Text = "";
-            Cmb_Estados.SelectedIndex = -1;
-
-            Chk_TemPai.Checked = false;
-            Rdb_Masculino.Checked = true;
+            LimparFormulario();
         }
 
         private void abrirToolStripButton_Click(object sender, EventArgs e)
@@ -312,11 +316,79 @@ namespace CursoWindowsForms
                 Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
                 if (F.status)
                 {
-                    F.Apagar(Txt_Codigo.Text);
+                    string clienteJson = F.Buscar(Txt_Codigo.Text);
+                    Cliente.unit C = new Cliente.unit();
+                    C = Cliente.DesSerializedClassUnit(clienteJson);
+                    EscreverFormulario(C);
+
+                    Frm_Questao Db = new Frm_Questao("question_mark", "Voce realmente deseja excluir?");
+                    Db.ShowDialog();
+
+                    if (Db.DialogResult == DialogResult.Yes)
+                    {
+                        F.Apagar(Txt_Codigo.Text);
+                        if (F.status)
+                        {
+                            MessageBox.Show("OK " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimparFormulario();
+                        }
+                        else
+                        {
+                            MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    
                 }
                 else
                 {
                     MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void salvarToolStripButton_Click(object sender, EventArgs e)
+        {
+            if (Txt_Codigo.Text == "")
+            {
+                MessageBox.Show("Codigo do cliente vazio", "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                try
+                {
+                    Cliente.unit c = new Cliente.unit();
+                    c = LeituraFormulario();
+                    c.ValidaClasse();
+                    c.ValidaComponente();
+                    string clienteJson = Cliente.SerializedClassUnit(c);
+
+                    Fichario F = new Fichario("C:\\Users\\Kleber\\Source\\Repos\\KleberLuccas\\WindowsForms\\Fichario");
+                    if (F.status == true)
+                    {
+                        F.Alterar(c.Id, clienteJson);
+                        if (F.status)
+                        {
+                            MessageBox.Show("OK " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ERR " + F.mensagem, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    MessageBox.Show("Cliente será incluído. O conteudo será " + clienteJson, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (ValidationException Ex)
+                {
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception Ex)
+                {
+                    MessageBox.Show(Ex.Message, "ByteBank", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
